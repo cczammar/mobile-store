@@ -25,7 +25,7 @@ export const Route = createFileRoute("/")({
 });
 
 function Index() {
-  const featured = PRODUCTS.filter((p) => p.badge).slice(0, 4);
+  const featured = PRODUCTS.filter((p) => p.badge).slice(0, 6);
 
   return (
     <>
