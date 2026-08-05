@@ -1,8 +1,7 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
-import { useState } from "react";
 import { ProductCard } from "@/components/site/ProductCard";
+import { InstallmentCalculator } from "@/components/site/InstallmentCalculator";
 import {
-  BANKS,
   categoryTitle,
   formatPrice,
   waLink,
@@ -64,8 +63,6 @@ export const Route = createFileRoute("/product/$id")({
 function ProductPage() {
   const { product, products } = Route.useLoaderData();
 
-  const [months, setMonths] = useState(12);
-
   const related = products
     .filter(
       (p) =>
@@ -73,8 +70,6 @@ function ProductPage() {
         p.id !== product.id,
     )
     .slice(0, 4);
-
-  const monthly = Math.round(product.price / months);
 
   return (
     <div className="mx-auto max-w-7xl px-6 pt-36 pb-24">
@@ -141,6 +136,8 @@ function ProductPage() {
             )}
           </div>
 
+          <InstallmentCalculator price={product.price} />
+
           <div className="mt-9 flex flex-wrap gap-3">
             <a
               href={waLink(
@@ -173,42 +170,6 @@ function ProductPage() {
             >
               Оформить заявку
             </Link>
-          </div>
-
-          <div className="mt-10 rounded-3xl bg-secondary p-7">
-            <p className="eyebrow text-olive-light">
-              Рассрочка
-            </p>
-
-            <div className="mt-4 flex items-baseline gap-3">
-              <span className="font-display text-3xl text-ink">
-                {formatPrice(monthly)}
-              </span>
-
-              <span className="text-sm text-muted-foreground">
-                в месяц · {months} мес.
-              </span>
-            </div>
-
-            <div className="mt-5 flex gap-2">
-              {[6, 12, 24, 36].map((m) => (
-                <button
-                  key={m}
-                  onClick={() => setMonths(m)}
-                  className={`rounded-full px-4 py-2 text-sm ${
-                    m === months
-                      ? "bg-ink text-background"
-                      : "bg-background text-ink/70"
-                  }`}
-                >
-                  {m}
-                </button>
-              ))}
-            </div>
-
-            <p className="mt-4 text-xs text-muted-foreground">
-              {BANKS.map((b) => b.name).join(" · ")}
-            </p>
           </div>
 
           <dl className="mt-10 divide-y divide-border border-t border-border">
