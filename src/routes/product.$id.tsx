@@ -3,21 +3,26 @@ import { useState } from "react";
 import { ProductCard } from "@/components/site/ProductCard";
 import {
   BANKS,
-  PRODUCTS,
   categoryTitle,
   formatPrice,
   waLink,
 } from "@/lib/store-data";
+import { getProducts } from "@/lib/products";
 
 export const Route = createFileRoute("/product/$id")({
-  loader: ({ params }) => {
-    const product = PRODUCTS.find((p) => p.id === params.id);
+  loader: async ({ params }) => {
+    const products = await getProducts();
+
+    const product = products.find((p) => p.id === params.id);
 
     if (!product) {
       throw notFound();
     }
 
-    return { product };
+    return {
+      product,
+      products,
+    };
   },
 
   head: ({ loaderData }) => {
@@ -57,13 +62,17 @@ export const Route = createFileRoute("/product/$id")({
 });
 
 function ProductPage() {
-  const { product } = Route.useLoaderData();
+  const { product, products } = Route.useLoaderData();
 
   const [months, setMonths] = useState(12);
 
-  const related = PRODUCTS.filter(
-    (p) => p.category === product.category && p.id !== product.id,
-  ).slice(0, 4);
+  const related = products
+    .filter(
+      (p) =>
+        p.category === product.category &&
+        p.id !== product.id,
+    )
+    .slice(0, 4);
 
   const monthly = Math.round(product.price / months);
 
@@ -139,7 +148,7 @@ function ProductPage() {
               )}
               target="_blank"
               rel="noreferrer"
-              className="rounded-full bg-ink px-8 py-3.5 text-sm font-medium text-background transition-transform duration-500 hover:-translate-y-0.5"
+              className="rounded-full bg-ink px-8 py-3.5 text-sm font-medium text-background"
             >
               Заказать в WhatsApp
             </a>
@@ -150,7 +159,7 @@ function ProductPage() {
               )}
               target="_blank"
               rel="noreferrer"
-              className="rounded-full bg-accent px-8 py-3.5 text-sm font-medium text-accent-foreground transition-transform duration-500 hover:-translate-y-0.5"
+              className="rounded-full bg-accent px-8 py-3.5 text-sm font-medium text-accent-foreground"
             >
               Купить в рассрочку
             </a>
@@ -160,7 +169,7 @@ function ProductPage() {
               search={{
                 product: `${product.brand} ${product.name}`,
               }}
-              className="rounded-full border border-ink bg-background px-8 py-3.5 text-sm font-medium text-ink transition-all duration-500 hover:-translate-y-0.5 hover:bg-ink hover:text-background"
+              className="rounded-full border border-ink bg-background px-8 py-3.5 text-sm font-medium text-ink"
             >
               Оформить заявку
             </Link>
@@ -186,10 +195,10 @@ function ProductPage() {
                 <button
                   key={m}
                   onClick={() => setMonths(m)}
-                  className={`rounded-full px-4 py-2 text-sm transition-colors ${
+                  className={`rounded-full px-4 py-2 text-sm ${
                     m === months
                       ? "bg-ink text-background"
-                      : "bg-background text-ink/70 hover:bg-rose"
+                      : "bg-background text-ink/70"
                   }`}
                 >
                   {m}
