@@ -3,6 +3,7 @@ import hero from "@/assets/hero.jpg";
 import storefront from "@/assets/storefront.jpg";
 import { ProductCard } from "@/components/site/ProductCard";
 import { CATEGORIES, PRODUCTS, STORE, waLink } from "@/lib/store-data";
+import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -70,23 +71,29 @@ function Index() {
             Смартфоны, ноутбуки, приставки, Dyson и другая техника — только оригинальная продукция с гарантией. Всё можно посмотреть, сравнить и протестировать в нашем магазине.
           </p>
         </div>
-        <div className="mt-14 grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-3 lg:grid-cols-4">
-          {CATEGORIES.map((c, i) => (
-            <Link
-              key={c.slug}
-              to="/catalog"
-              search={{ category: c.slug }}
-              className={`lift group flex min-h-40 flex-col justify-between rounded-3xl p-6 transition-colors sm:min-h-48 ${
-                i % 5 === 0 ? "bg-olive text-primary-foreground" : i % 5 === 3 ? "bg-rose text-ink" : "bg-secondary text-ink"
-              }`}
-            >
-              <span className="eyebrow opacity-60">
-                {String(i + 1).padStart(2, "0")}
-              </span>
-              <span className="font-display text-2xl leading-tight sm:text-3xl">{c.title}</span>
-            </Link>
-          ))}
-        </div>
+        <Carousel
+          opts={{ align: "start", loop: true }}
+          className="mt-14"
+        >
+          <CarouselContent className="-ml-3">
+            {CATEGORIES.map((c, i) => (
+              <CarouselItem key={c.slug} className="basis-[78%] pl-3 sm:basis-[45%] lg:basis-1/4">
+                <Link
+                  to="/catalog"
+                  search={{ category: c.slug }}
+                  className={`lift group flex min-h-40 flex-col justify-between rounded-3xl p-6 transition-colors sm:min-h-48 ${
+                    i % 5 === 0 ? "bg-olive text-primary-foreground" : i % 5 === 3 ? "bg-rose text-ink" : "bg-secondary text-ink"
+                  }`}
+                >
+                  <span className="eyebrow opacity-60">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <span className="font-display text-2xl leading-tight sm:text-3xl">{c.title}</span>
+                </Link>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+        </Carousel>
       </section>
 
       <section className="mx-auto max-w-7xl px-6 pb-24 md:pb-32">
