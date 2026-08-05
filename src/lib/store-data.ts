@@ -45,6 +45,7 @@ export type Product = {
   badge: Badge;
   inStock: boolean;
   image: string;
+  image2?: string;
   description: string;
   specs: { label: string; value: string }[];
 };
