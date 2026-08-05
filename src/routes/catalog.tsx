@@ -148,7 +148,7 @@ function Catalog() {
 
       <h1 className="display-lg mt-4 text-ink">
         {activeCategory === "all"
-          ? "Всё собрание"
+          ? "Все товары"
           : categoryTitle(activeCategory)}
       </h1>
 
