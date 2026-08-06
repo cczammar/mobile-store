@@ -9,17 +9,30 @@ function PaymentPage() {
     <main className="mx-auto max-w-5xl px-6 py-20">
       <h1 className="display-lg">Оплата</h1>
 
-      <div className="mt-8 space-y-5 text-base leading-relaxed text-muted-foreground">
-        <p>
-          В Mobile Store Beslan доступны удобные способы оплаты:
-        </p>
+      <div className="mt-10 space-y-10 text-base leading-relaxed text-muted-foreground">
 
-        <ul className="list-disc space-y-2 pl-6">
-          <li>Наличными в магазине</li>
-          <li>Банковской картой</li>
-          <li>Оплата по QR-коду</li>
-          <li>Рассрочка и кредит</li>
-        </ul>
+        <section>
+          <h2 className="text-xl font-semibold text-foreground">
+            Способы оплаты
+          </h2>
+
+          <ul className="mt-4 list-disc space-y-3 pl-6">
+            <li>
+              Наличными в магазине — по цене со скидкой.
+            </li>
+
+            <li>
+              Банковской картой или по QR-коду — применяется основная цена.
+            </li>
+
+            <li>
+              Покупка в кредит / рассрочку — оформляется через банк-партнёр.
+              Расчёт платежа является предварительным. Оформляется по основной
+              цене.
+            </li>
+          </ul>
+        </section>
+
       </div>
     </main>
   );
