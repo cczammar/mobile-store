@@ -149,6 +149,25 @@ function ProductPage() {
 </div>
 
           <InstallmentCalculator price={product.price} />
+          <div className="mt-8 grid gap-3 rounded-3xl bg-secondary p-6 text-sm">
+
+  <p className="font-medium text-ink">
+    ✓ Гарантия на устройство
+  </p>
+
+  <p className="text-muted-foreground">
+    ✓ Проверка перед покупкой
+  </p>
+
+  <p className="text-muted-foreground">
+    ✓ Доставка по России и РСО-Алания
+  </p>
+
+  <p className="text-muted-foreground">
+    ✓ Консультация менеджера в WhatsApp
+  </p>
+
+</div>
 
           <div className="mt-9 flex flex-wrap gap-3">
             <a
