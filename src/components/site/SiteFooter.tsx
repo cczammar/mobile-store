@@ -16,8 +16,9 @@ export function SiteFooter() {
 
       <div className="absolute inset-0 bg-ink/85" />
 
-      <div className="relative mx-auto grid max-w-7xl gap-12 px-6 py-20 text-background md:grid-cols-[1.2fr_1fr_1fr_1fr] md:py-28">
+      <div className="relative mx-auto grid max-w-7xl gap-12 px-6 py-20 text-background md:grid-cols-[1.2fr_1fr_1fr_1fr_1fr] md:py-28">
 
+        {/* О магазине */}
         <div>
           <p className="display-lg text-background">
             Mobile Store Beslan
@@ -39,6 +40,7 @@ export function SiteFooter() {
         </div>
 
 
+        {/* Каталог */}
         <div className="text-sm">
           <p className="eyebrow text-background/50">
             Каталог
@@ -60,12 +62,13 @@ export function SiteFooter() {
         </div>
 
 
+        {/* Покупателям */}
         <div className="text-sm">
           <p className="eyebrow text-background/50">
             Покупателям
           </p>
 
-          <ul className="mt-5 space-y-3">
+          <ul className="mt-5 space-y-2.5">
             <li>
               <Link
                 to="/delivery"
@@ -96,15 +99,20 @@ export function SiteFooter() {
         </div>
 
 
+        {/* Контакты */}
         <div className="text-sm text-background/75">
           <p className="eyebrow text-background/50">
             Контакты
           </p>
 
           <ul className="mt-5 space-y-2.5">
-            <li>{STORE.address}</li>
+            <li>
+              {STORE.address}
+            </li>
 
-            <li>{STORE.hours}</li>
+            <li>
+              {STORE.hours}
+            </li>
 
             <li>
               <a
@@ -133,6 +141,25 @@ export function SiteFooter() {
               >
                 Instagram
               </a>
+            </li>
+          </ul>
+        </div>
+
+
+        {/* Документы */}
+        <div className="text-sm">
+          <p className="eyebrow text-background/50">
+            Документы
+          </p>
+
+          <ul className="mt-5 space-y-2.5">
+            <li>
+              <Link
+                to="/privacy"
+                className="text-background/75 transition-colors hover:text-background"
+              >
+                Политика конфиденциальности
+              </Link>
             </li>
           </ul>
         </div>
