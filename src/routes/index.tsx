@@ -183,7 +183,7 @@ function Index() {
       <section className="mx-auto max-w-7xl px-6 pb-24 md:pb-32">
         <div className="flex flex-wrap items-end justify-between gap-6">
           <h2 className="display-lg text-ink">
-            Избранное
+              Популярные товары
           </h2>
 
           <Link
