@@ -124,17 +124,29 @@ function ProductPage() {
             {product.name}
           </h1>
 
-          <div className="mt-6 flex items-baseline gap-4">
-            <span className="font-display text-3xl text-ink">
-              {formatPrice(product.price)}
-            </span>
+         <div className="mt-6 flex flex-wrap items-center gap-4">
 
-            {product.oldPrice && (
-              <span className="text-sm text-muted-foreground line-through">
-                {formatPrice(product.oldPrice)}
-              </span>
-            )}
-          </div>
+  <span className="font-display text-3xl text-ink">
+    {formatPrice(product.price)}
+  </span>
+
+  {product.oldPrice && (
+    <span className="text-sm text-muted-foreground line-through">
+      {formatPrice(product.oldPrice)}
+    </span>
+  )}
+
+  <span
+    className={`rounded-full px-4 py-1.5 text-xs font-medium ${
+      product.inStock
+        ? "bg-olive text-background"
+        : "bg-secondary text-ink"
+    }`}
+  >
+    {product.inStock ? "В наличии" : "Под заказ"}
+  </span>
+
+</div>
 
           <InstallmentCalculator price={product.price} />
 
