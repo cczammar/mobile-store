@@ -185,9 +185,26 @@ export function SiteFooter() {
       </div>
 
 
+      {/* Нижний юридический блок */}
       <div className="relative border-t border-background/15">
-        <div className="mx-auto max-w-7xl px-6 py-6 text-xs text-background/50">
-          © {new Date().getFullYear()} Mobile Store Beslan
+        <div className="mx-auto max-w-7xl space-y-3 px-6 py-6 text-xs leading-relaxed text-background/50">
+
+          <p>
+            Сайт носит исключительно информационный характер и не является
+            публичной офертой, определяемой положениями статьи 437 (2)
+            Гражданского кодекса Российской Федерации.
+          </p>
+
+          <p>
+            Apple и логотип Apple являются зарегистрированными товарными знаками
+            компании Apple Inc. в США и других странах. App Store является
+            знаком обслуживания компании Apple Inc.
+          </p>
+
+          <p>
+            © {new Date().getFullYear()} Mobile Store Beslan
+          </p>
+
         </div>
       </div>
 
