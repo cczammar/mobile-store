@@ -60,6 +60,7 @@ export const Route = createFileRoute("/product/$id")({
   component: ProductPage,
 });
 
+
 function ProductPage() {
   const { product, products } = Route.useLoaderData();
 
@@ -71,10 +72,15 @@ function ProductPage() {
     )
     .slice(0, 4);
 
+
   return (
     <div className="mx-auto max-w-7xl px-6 pt-36 pb-24">
+
       <nav className="text-xs text-muted-foreground">
-        <Link to="/catalog" className="hover:text-olive">
+        <Link
+          to="/catalog"
+          className="hover:text-olive"
+        >
           Каталог
         </Link>
 
@@ -89,8 +95,11 @@ function ProductPage() {
         </Link>
       </nav>
 
+
       <div className="mt-8 grid gap-12 lg:grid-cols-[1.15fr_1fr] lg:gap-20">
+
         <div className="grid gap-4">
+
           <img
             src={product.image}
             alt={`${product.brand} ${product.name}`}
@@ -99,77 +108,73 @@ function ProductPage() {
             className="aspect-4/5 w-full rounded-[2rem] object-cover"
           />
 
-          <div className="grid grid-cols-3 gap-4">
-            {[0, 1, 2].map((i) => (
-              <img
-                key={i}
-                src={product.image}
-                alt=""
-                loading="lazy"
-                className="aspect-square w-full rounded-2xl object-cover opacity-90"
-                style={{
-                  objectPosition: `${25 + i * 25}% center`,
-                }}
-              />
-            ))}
-          </div>
         </div>
 
+
+
         <div className="lg:pt-6">
+
           <p className="eyebrow text-olive-light">
             {product.brand}
           </p>
+
 
           <h1 className="display-lg mt-3 text-ink">
             {product.name}
           </h1>
 
-         <div className="mt-6 flex flex-wrap items-center gap-4">
 
-  <span className="font-display text-3xl text-ink">
-    {formatPrice(product.price)}
-  </span>
 
-  {product.oldPrice && (
-    <span className="text-sm text-muted-foreground line-through">
-      {formatPrice(product.oldPrice)}
-    </span>
-  )}
+          <div className="mt-6 flex flex-wrap items-center gap-4">
 
-  <span
-    className={`rounded-full px-4 py-1.5 text-xs font-medium ${
-      product.inStock
-        ? "bg-olive text-background"
-        : "bg-secondary text-ink"
-    }`}
-  >
-    {product.inStock ? "В наличии" : "Под заказ"}
-  </span>
+            <span className="font-display text-3xl text-ink">
+              {formatPrice(product.price)}
+            </span>
 
-</div>
+
+            {product.oldPrice && (
+              <span className="text-sm text-muted-foreground line-through">
+                {formatPrice(product.oldPrice)}
+              </span>
+            )}
+
+
+            <span className="rounded-full bg-secondary px-4 py-1.5 text-xs font-medium text-ink">
+              {product.inStock ? "В наличии" : "Под заказ"}
+            </span>
+
+          </div>
+
+
 
           <InstallmentCalculator price={product.price} />
-          <div className="mt-8 grid gap-3 rounded-3xl bg-secondary p-6 text-sm">
 
-  <p className="font-medium text-ink">
-    ✓ Гарантия на устройство
-  </p>
 
-  <p className="text-muted-foreground">
-    ✓ Проверка перед покупкой
-  </p>
 
-  <p className="text-muted-foreground">
-    ✓ Доставка по России и РСО-Алания
-  </p>
+          <div className="mt-8 rounded-3xl bg-secondary p-6 text-sm">
 
-  <p className="text-muted-foreground">
-    ✓ Консультация менеджера в WhatsApp
-  </p>
+            <p className="font-medium text-ink">
+              ✓ Оригинальная техника
+            </p>
 
-</div>
+            <p className="mt-2 text-muted-foreground">
+              ✓ Гарантия и проверка перед покупкой
+            </p>
+
+            <p className="mt-2 text-muted-foreground">
+              ✓ Доставка по России и РСО-Алания
+            </p>
+
+            <p className="mt-2 text-muted-foreground">
+              ✓ Консультация менеджера в WhatsApp
+            </p>
+
+          </div>
+
+
 
           <div className="mt-9 flex flex-wrap gap-3">
+
             <a
               href={waLink(
                 `Здравствуйте! Интересует ${product.brand} ${product.name}.`,
@@ -180,6 +185,7 @@ function ProductPage() {
             >
               Заказать в WhatsApp
             </a>
+
 
             <a
               href={waLink(
@@ -192,6 +198,7 @@ function ProductPage() {
               Купить в рассрочку
             </a>
 
+
             <Link
               to="/request"
               search={{
@@ -201,45 +208,88 @@ function ProductPage() {
             >
               Оформить заявку
             </Link>
+
           </div>
 
+
+
+
           <dl className="mt-10 divide-y divide-border border-t border-border">
+
             {product.specs.map(
               (s: { label: string; value: string }) => (
+
                 <div
                   key={s.label}
                   className="flex justify-between gap-6 py-4 text-sm"
                 >
+
                   <dt className="text-muted-foreground">
                     {s.label}
                   </dt>
 
+
                   <dd className="text-ink">
                     {s.value}
                   </dd>
+
                 </div>
+
               ),
             )}
+
           </dl>
+
+
+
+          {product.description && (
+            <div className="mt-10">
+
+              <h2 className="text-xl font-semibold text-ink">
+                О товаре
+              </h2>
+
+              <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
+                {product.description}
+              </p>
+
+            </div>
+          )}
+
+
         </div>
+
       </div>
 
+
+
+
       {related.length > 0 && (
+
         <section className="mt-28">
+
           <h2 className="display-lg text-ink">
             Похожее
           </h2>
 
+
           <div className="mt-12 grid gap-x-6 gap-y-12 sm:grid-cols-2 lg:grid-cols-4">
+
             {related.map((p) => (
+
               <ProductCard
                 key={p.id}
                 product={p}
               />
+
             ))}
+
           </div>
+
         </section>
+
       )}
+
     </div>
   );
 }
