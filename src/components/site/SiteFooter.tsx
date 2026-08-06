@@ -71,7 +71,7 @@ export function SiteFooter() {
                 to="/delivery"
                 className="text-background/75 transition-colors hover:text-background"
               >
-                🚚 Доставка
+                Доставка
               </Link>
             </li>
 
@@ -80,7 +80,7 @@ export function SiteFooter() {
                 to="/payment"
                 className="text-background/75 transition-colors hover:text-background"
               >
-                💳 Оплата
+                Оплата
               </Link>
             </li>
 
@@ -89,7 +89,7 @@ export function SiteFooter() {
                 to="/warranty"
                 className="text-background/75 transition-colors hover:text-background"
               >
-                🛡 Гарантия
+                Гарантия
               </Link>
             </li>
           </ul>
