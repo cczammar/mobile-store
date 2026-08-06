@@ -74,6 +74,7 @@ function Index() {
         </div>
       </section>
 
+
       <section className="mx-auto max-w-7xl px-6 py-24 md:py-32">
         <div className="grid gap-10 md:grid-cols-[0.9fr_1.1fr] md:items-end">
           <h2 className="display-lg text-ink">
@@ -112,7 +113,74 @@ function Index() {
           ))}
         </div>
       </section>
-            <section className="mx-auto max-w-7xl px-6 pb-24 md:pb-32">
+
+
+      {/* Почему выбирают */}
+      <section className="mx-auto max-w-7xl px-6 py-24 md:py-32">
+        <div className="grid gap-10 md:grid-cols-[0.9fr_1.1fr] md:items-end">
+          <h2 className="display-lg text-ink">
+            Почему выбирают
+            <br />
+            Mobile Store Beslan
+          </h2>
+
+          <p className="max-w-md text-sm leading-relaxed text-muted-foreground md:justify-self-end">
+            Помогаем подобрать технику под ваши задачи — от смартфона до
+            профессиональных устройств. Гарантия, консультация и удобная покупка
+            в одном месте.
+          </p>
+        </div>
+
+        <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+
+          <div className="rounded-3xl bg-secondary p-8">
+            <p className="text-3xl">✓</p>
+            <h3 className="mt-6 font-display text-2xl text-ink">
+              Оригинальная техника
+            </h3>
+            <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+              Только качественные устройства от проверенных поставщиков.
+            </p>
+          </div>
+
+
+          <div className="rounded-3xl bg-secondary p-8">
+            <p className="text-3xl">✓</p>
+            <h3 className="mt-6 font-display text-2xl text-ink">
+              Гарантия и сервис
+            </h3>
+            <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+              Поможем с обслуживанием и ответим на вопросы после покупки.
+            </p>
+          </div>
+
+
+          <div className="rounded-3xl bg-secondary p-8">
+            <p className="text-3xl">✓</p>
+            <h3 className="mt-6 font-display text-2xl text-ink">
+              Рассрочка и кредит
+            </h3>
+            <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+              Возможность оформить покупку удобным способом оплаты.
+            </p>
+          </div>
+
+
+          <div className="rounded-3xl bg-secondary p-8">
+            <p className="text-3xl">✓</p>
+            <h3 className="mt-6 font-display text-2xl text-ink">
+              Доставка по России
+            </h3>
+            <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+              Отправляем технику в другие города через надёжные службы доставки.
+            </p>
+          </div>
+
+        </div>
+      </section>
+
+
+      <section className="mx-auto max-w-7xl px-6 pb-24 md:pb-32">
         <div className="flex flex-wrap items-end justify-between gap-6">
           <h2 className="display-lg text-ink">
             Избранное
@@ -136,9 +204,10 @@ function Index() {
         </div>
       </section>
 
+
       <section className="px-4 sm:px-6">
         <div className="mx-auto grid max-w-7xl overflow-hidden rounded-[2rem] bg-secondary md:grid-cols-2">
-          
+
           <div className="zoom-media order-2 md:order-1">
             <img
               src={storefront}
@@ -151,6 +220,7 @@ function Index() {
           </div>
 
           <div className="order-1 flex flex-col justify-center p-10 md:order-2 md:p-16">
+
             <p className="eyebrow text-olive-light">
               Салон
             </p>
@@ -178,9 +248,11 @@ function Index() {
             >
               Как нас найти
             </Link>
+
           </div>
+
         </div>
       </section>
-          </>
+    </>
   );
 }
