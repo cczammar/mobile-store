@@ -16,7 +16,7 @@ export function SiteFooter() {
 
       <div className="absolute inset-0 bg-ink/85" />
 
-      <div className="relative mx-auto grid max-w-7xl gap-12 px-6 py-20 text-background md:grid-cols-[1.2fr_1fr_1fr_1fr_1fr] md:py-28">
+      <div className="relative mx-auto grid max-w-7xl gap-12 px-6 py-20 text-background md:grid-cols-[1.4fr_1fr_1fr_1fr_1fr] md:py-28">
 
         {/* О магазине */}
         <div>
@@ -159,6 +159,24 @@ export function SiteFooter() {
                 className="text-background/75 transition-colors hover:text-background"
               >
                 Политика конфиденциальности
+              </Link>
+            </li>
+
+            <li>
+              <Link
+                to="/personal-data"
+                className="text-background/75 transition-colors hover:text-background"
+              >
+                Согласие на обработку данных
+              </Link>
+            </li>
+
+            <li>
+              <Link
+                to="/offer"
+                className="text-background/75 transition-colors hover:text-background"
+              >
+                Публичная оферта
               </Link>
             </li>
           </ul>
