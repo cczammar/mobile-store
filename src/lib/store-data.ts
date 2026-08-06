@@ -45,6 +45,12 @@ export type Product = {
   specs: { label: string; value: string }[];
 };
 
+const BASE_URL =
+  "https://pyemazjdueigboofbmdb.supabase.co/storage/v1/object/public/products";
+
+const img = (number: number) =>
+  `${BASE_URL}/product-${String(number).padStart(4, "0")}.webp`;
+
 const spec = (a: string, b: string) => ({ label: a, value: b });
 
 export const PRODUCTS: Product[] = [
@@ -56,11 +62,18 @@ export const PRODUCTS: Product[] = [
     category: "smartphones",
     badge: "Новинка",
     inStock: true,
-    image: "https://pyemazjdueigboofbmdb.supabase.co/storage/v1/object/public/products/phone.jpg",
+    image: img(15),
+    image2: img(16),
     description:
       "Титановый корпус, матовая отделка и камера профессионального уровня. Флагман, собранный вокруг тишины и точности.",
-    specs: [spec("Дисплей", '6.3" Super Retina XDR'), spec("Память", "256 ГБ"), spec("Чип", "A19 Pro"), spec("Гарантия", "12 месяцев")],
+    specs: [
+      spec("Дисплей", '6.3" Super Retina XDR'),
+      spec("Память", "256 ГБ"),
+      spec("Чип", "A19 Pro"),
+      spec("Гарантия", "12 месяцев"),
+    ],
   },
+
   {
     id: "iphone-16",
     brand: "Apple",
@@ -70,10 +83,18 @@ export const PRODUCTS: Product[] = [
     category: "smartphones",
     badge: "Скидка",
     inStock: true,
-    image: "https://pyemazjdueigboofbmdb.supabase.co/storage/v1/object/public/products/phone.jpg",
-    description: "Сбалансированный флагман прошлого поколения — та же выдержанная эстетика, более мягкая цена.",
-    specs: [spec("Дисплей", '6.1" OLED'), spec("Память", "128 ГБ"), spec("Чип", "A18"), spec("Гарантия", "12 месяцев")],
+    image: img(17),
+    image2: img(18),
+    description:
+      "Сбалансированный флагман прошлого поколения — та же выдержанная эстетика, более мягкая цена.",
+    specs: [
+      spec("Дисплей", '6.1" OLED'),
+      spec("Память", "128 ГБ"),
+      spec("Чип", "A18"),
+      spec("Гарантия", "12 месяцев"),
+    ],
   },
+
   {
     id: "galaxy-s25-ultra",
     brand: "Samsung",
@@ -82,11 +103,18 @@ export const PRODUCTS: Product[] = [
     category: "smartphones",
     badge: "Популярное",
     inStock: true,
-    image: "https://pyemazjdueigboofbmdb.supabase.co/storage/v1/object/public/products/phone.jpg",
-    description: "Максимум оптики и стилус S Pen в корпусе из титана.",
-    specs: [spec("Дисплей", '6.9" AMOLED 2X'), spec("Память", "512 ГБ"), spec("Камера", "200 Мп"), spec("Гарантия", "12 месяцев")],
+    image: img(19),
+    image2: img(20),
+    description:
+      "Максимум оптики и стилус S Pen в корпусе из титана.",
+    specs: [
+      spec("Дисплей", '6.9" AMOLED 2X'),
+      spec("Память", "512 ГБ"),
+      spec("Камера", "200 Мп"),
+      spec("Гарантия", "12 месяцев"),
+    ],
   },
-  {
+    {
     id: "macbook-air-m4",
     brand: "Apple",
     name: "MacBook Air 13 M4",
@@ -94,10 +122,18 @@ export const PRODUCTS: Product[] = [
     category: "laptops",
     badge: "Новинка",
     inStock: true,
-    image: "https://pyemazjdueigboofbmdb.supabase.co/storage/v1/object/public/products/laptop.jpg",
-    description: "Тонкий, бесшумный, целый день без розетки. Ноутбук, который не спорит с интерьером.",
-    specs: [spec("Экран", '13.6" Liquid Retina'), spec("Память", "16 ГБ / 512 ГБ"), spec("Чип", "M4"), spec("Гарантия", "12 месяцев")],
+    image: img(21),
+    image2: img(22),
+    description:
+      "Тонкий, бесшумный, целый день без розетки. Ноутбук, который не спорит с интерьером.",
+    specs: [
+      spec("Экран", '13.6" Liquid Retina'),
+      spec("Память", "16 ГБ / 512 ГБ"),
+      spec("Чип", "M4"),
+      spec("Гарантия", "12 месяцев"),
+    ],
   },
+
   {
     id: "macbook-pro-14",
     brand: "Apple",
@@ -106,10 +142,18 @@ export const PRODUCTS: Product[] = [
     category: "laptops",
     badge: null,
     inStock: false,
-    image: "https://pyemazjdueigboofbmdb.supabase.co/storage/v1/object/public/products/laptop.jpg",
-    description: "Рабочая станция для монтажа и разработки в корпусе размером с блокнот.",
-    specs: [spec("Экран", '14.2" XDR 120 Гц'), spec("Память", "24 ГБ / 1 ТБ"), spec("Чип", "M4 Pro"), spec("Гарантия", "12 месяцев")],
+    image: img(23),
+    image2: img(24),
+    description:
+      "Рабочая станция для монтажа и разработки в корпусе размером с блокнот.",
+    specs: [
+      spec("Экран", '14.2" XDR 120 Гц'),
+      spec("Память", "24 ГБ / 1 ТБ"),
+      spec("Чип", "M4 Pro"),
+      spec("Гарантия", "12 месяцев"),
+    ],
   },
+
   {
     id: "ipad-pro-11",
     brand: "Apple",
@@ -118,10 +162,18 @@ export const PRODUCTS: Product[] = [
     category: "tablets",
     badge: "Популярное",
     inStock: true,
-    image: "https://pyemazjdueigboofbmdb.supabase.co/storage/v1/object/public/products/laptop.jpg",
-    description: "Тандем-OLED и толщина в 5.3 мм — планшет как лист стекла.",
-    specs: [spec("Экран", '11" Tandem OLED'), spec("Память", "256 ГБ"), spec("Чип", "M4"), spec("Гарантия", "12 месяцев")],
+    image: img(25),
+    image2: img(26),
+    description:
+      "Тандем-OLED и толщина в 5.3 мм — планшет как лист стекла.",
+    specs: [
+      spec("Экран", '11" Tandem OLED'),
+      spec("Память", "256 ГБ"),
+      spec("Чип", "M4"),
+      spec("Гарантия", "12 месяцев"),
+    ],
   },
+
   {
     id: "apple-watch-u3",
     brand: "Apple",
@@ -130,10 +182,18 @@ export const PRODUCTS: Product[] = [
     category: "watches",
     badge: "Новинка",
     inStock: true,
-    image: "https://pyemazjdueigboofbmdb.supabase.co/storage/v1/object/public/products/watch.jpg",
-    description: "Титан, сапфир и автономность на несколько дней. Часы для города и для гор.",
-    specs: [spec("Корпус", "49 мм титан"), spec("Экран", "3000 нит"), spec("Защита", "100 м"), spec("Гарантия", "12 месяцев")],
+    image: img(27),
+    image2: img(28),
+    description:
+      "Титан, сапфир и автономность на несколько дней. Часы для города и для гор.",
+    specs: [
+      spec("Корпус", "49 мм титан"),
+      spec("Экран", "3000 нит"),
+      spec("Защита", "100 м"),
+      spec("Гарантия", "12 месяцев"),
+    ],
   },
+
   {
     id: "galaxy-watch-7",
     brand: "Samsung",
@@ -143,10 +203,18 @@ export const PRODUCTS: Product[] = [
     category: "watches",
     badge: "Скидка",
     inStock: true,
-    image: "https://pyemazjdueigboofbmdb.supabase.co/storage/v1/object/public/products/watch.jpg",
-    description: "Спокойный дизайн и точные сенсоры здоровья.",
-    specs: [spec("Корпус", "44 мм алюминий"), spec("Экран", "AMOLED"), spec("Автономность", "40 ч"), spec("Гарантия", "12 месяцев")],
+    image: img(29),
+    image2: img(30),
+    description:
+      "Спокойный дизайн и точные сенсоры здоровья.",
+    specs: [
+      spec("Корпус", "44 мм алюминий"),
+      spec("Экран", "AMOLED"),
+      spec("Автономность", "40 ч"),
+      spec("Гарантия", "12 месяцев"),
+    ],
   },
+
   {
     id: "airpods-max",
     brand: "Apple",
@@ -155,10 +223,18 @@ export const PRODUCTS: Product[] = [
     category: "headphones",
     badge: "Популярное",
     inStock: true,
-    image: "https://pyemazjdueigboofbmdb.supabase.co/storage/v1/object/public/products/audio.jpg",
-    description: "Алюминий, память формы и тишина одним касанием.",
-    specs: [spec("Тип", "Накладные"), spec("Шумоподавление", "Активное"), spec("Автономность", "20 ч"), spec("Гарантия", "12 месяцев")],
+    image: img(31),
+    image2: img(32),
+    description:
+      "Алюминий, память формы и тишина одним касанием.",
+    specs: [
+      spec("Тип", "Накладные"),
+      spec("Шумоподавление", "Активное"),
+      spec("Автономность", "20 ч"),
+      spec("Гарантия", "12 месяцев"),
+    ],
   },
+
   {
     id: "sony-wh1000xm6",
     brand: "Sony",
@@ -167,10 +243,18 @@ export const PRODUCTS: Product[] = [
     category: "headphones",
     badge: null,
     inStock: true,
-    image: "https://pyemazjdueigboofbmdb.supabase.co/storage/v1/object/public/products/audio.jpg",
-    description: "Эталон шумоподавления в мягком корпусе песочного оттенка.",
-    specs: [spec("Тип", "Накладные"), spec("Кодеки", "LDAC"), spec("Автономность", "30 ч"), spec("Гарантия", "12 месяцев")],
+    image: img(33),
+    image2: img(34),
+    description:
+      "Эталон шумоподавления в мягком корпусе песочного оттенка.",
+    specs: [
+      spec("Тип", "Накладные"),
+      spec("Кодеки", "LDAC"),
+      spec("Автономность", "30 ч"),
+      spec("Гарантия", "12 месяцев"),
+    ],
   },
+
   {
     id: "ps5-pro",
     brand: "Sony",
@@ -179,11 +263,18 @@ export const PRODUCTS: Product[] = [
     category: "gaming",
     badge: null,
     inStock: true,
-    image: "https://pyemazjdueigboofbmdb.supabase.co/storage/v1/object/public/products/laptop.jpg",
-    description: "Консоль нового поколения с 8K-выводом и SSD на 2 ТБ.",
-    specs: [spec("Накопитель", "2 ТБ SSD"), spec("Видео", "до 8K"), spec("Комплект", "DualSense"), spec("Гарантия", "12 месяцев")],
+    image: img(35),
+    image2: img(36),
+    description:
+      "Консоль нового поколения с 8K-выводом и SSD на 2 ТБ.",
+    specs: [
+      spec("Накопитель", "2 ТБ SSD"),
+      spec("Видео", "до 8K"),
+      spec("Комплект", "DualSense"),
+      spec("Гарантия", "12 месяцев"),
+    ],
   },
-  {
+    {
     id: "dyson-airwrap",
     brand: "Dyson",
     name: "Airwrap i.d. Complete",
@@ -191,10 +282,18 @@ export const PRODUCTS: Product[] = [
     category: "dyson",
     badge: "Популярное",
     inStock: true,
-    image: "https://pyemazjdueigboofbmdb.supabase.co/storage/v1/object/public/products/audio.jpg",
-    description: "Укладка без экстремального нагрева. Объект, который не хочется прятать в ящик.",
-    specs: [spec("Насадки", "6 в комплекте"), spec("Режимы", "3 скорости"), spec("Кейс", "Дорожный"), spec("Гарантия", "24 месяца")],
+    image: img(9),
+    image2: img(10),
+    description:
+      "Укладка без экстремального нагрева. Объект, который не хочется прятать в ящик.",
+    specs: [
+      spec("Насадки", "6 в комплекте"),
+      spec("Режимы", "3 скорости"),
+      spec("Кейс", "Дорожный"),
+      spec("Гарантия", "24 месяца"),
+    ],
   },
+
   {
     id: "lg-oled-65",
     brand: "LG",
@@ -204,10 +303,18 @@ export const PRODUCTS: Product[] = [
     category: "tv",
     badge: "Скидка",
     inStock: true,
-    image: "https://pyemazjdueigboofbmdb.supabase.co/storage/v1/object/public/products/laptop.jpg",
-    description: "Бесконечный контраст и рама толщиной в карандаш.",
-    specs: [spec("Диагональ", "65″"), spec("Матрица", "OLED evo"), spec("Частота", "144 Гц"), spec("Гарантия", "24 месяца")],
+    image: img(37),
+    image2: img(38),
+    description:
+      "Бесконечный контраст и рама толщиной в карандаш.",
+    specs: [
+      spec("Диагональ", "65″"),
+      spec("Матрица", "OLED evo"),
+      spec("Частота", "144 Гц"),
+      spec("Гарантия", "24 месяца"),
+    ],
   },
+
   {
     id: "magsafe-duo",
     brand: "Apple",
@@ -216,16 +323,27 @@ export const PRODUCTS: Product[] = [
     category: "accessories",
     badge: null,
     inStock: true,
-    image: "https://pyemazjdueigboofbmdb.supabase.co/storage/v1/object/public/products/watch.jpg",
-    description: "Две зарядки в одном сложенном жесте.",
-    specs: [spec("Мощность", "15 Вт"), spec("Материал", "Алюминий"), spec("Кабель", "USB-C 1 м"), spec("Гарантия", "12 месяцев")],
+    image: img(39),
+    image2: img(40),
+    description:
+      "Две зарядки в одном сложенном жесте.",
+    specs: [
+      spec("Мощность", "15 Вт"),
+      spec("Материал", "Алюминий"),
+      spec("Кабель", "USB-C 1 м"),
+      spec("Гарантия", "12 месяцев"),
+    ],
   },
 ];
 
-export const BRANDS = Array.from(new Set(PRODUCTS.map((p) => p.brand))).sort();
+export const BRANDS = Array.from(
+  new Set(PRODUCTS.map((p) => p.brand))
+).sort();
 
 export const formatPrice = (value: number) =>
-  new Intl.NumberFormat("ru-RU", { maximumFractionDigits: 0 }).format(value) + " ₽";
+  new Intl.NumberFormat("ru-RU", {
+    maximumFractionDigits: 0,
+  }).format(value) + " ₽";
 
 export const categoryTitle = (slug: string) =>
   CATEGORIES.find((c) => c.slug === slug)?.title ?? "Другое";
